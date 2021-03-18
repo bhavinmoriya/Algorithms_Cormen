@@ -1,4 +1,5 @@
-'''Given a positive integer n, find the smallest number of squared integers which sum to n.'''
+'''Given a positive integer n, find the smallest number of squared integers which sum to n.
+Daily Coding Problem: Problem #670'''
 
 def getMinSquares(n):
   import math
