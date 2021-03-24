@@ -34,3 +34,22 @@ def twoSum(l,k):
       else:
         j += 1
   return False
+
+''' Get the minimal path '''
+
+def minpairing(l,m):
+  result = []
+  for i in range(len(l)):
+    if m[i] < m[i+1]:
+      result.append(l[i]+m[i])
+    else:
+      result.append(l[i]+m[i+1])
+  return result
+
+def minsumpath(l):
+  m = len(l)
+  result = minpairing(l[-2],l[-1])
+
+  for i in range(m-3,-1,-1):
+    result = minpairing(l[i],result)
+  return result[0]
