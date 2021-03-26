@@ -77,3 +77,29 @@ while 0 in l:
   l.remove(0)
 l.remove(1)
 print(l)
+
+'''Given a list of points, a central point, and an integer k, find the nearest k points from the central point.
+
+For example, given the list of points [(0, 0), (5, 4), (3, 1)], the central point (1, 2), and k = 2, return [(0, 0), (3, 1)].'''
+def distance(a,b):
+  return (a[0]-b[0])**2 + (a[1]-b[1])**2
+def closestpnts(l,k,center):
+  dist = {}
+  for i in range(len(l)):
+    dist[l[i]] = distance(l[i],center)
+  b = list(dist.values());
+  b1 = set(b)
+  b = list(b1); b.sort()
+  print(b)
+  c = []
+  for i in range(k):
+    if len(c) < k+1:
+      for key in dist.keys():
+
+        if dist[key] == b[i] and len(c) < k+1:
+          c.append(key)
+
+  if len(c) > k:
+    c = c[0:k]
+  return c
+
