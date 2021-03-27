@@ -103,3 +103,37 @@ def closestpnts(l,k,center):
     c = c[0:k]
   return c
 
+'''This problem was asked by Square.
+
+Given a list of words, return the shortest unique prefix of each word. For example, given the list:
+
+dog
+cat
+apple
+apricot
+fish
+Return the list:
+
+d
+c
+app
+apr
+f
+
+Problem #680 '''
+
+def getLeastPrefix(l):
+  m = len(l)
+  prefix = [l[i][0] for i in range(m)]
+  s = set(prefix)
+  while len(s) != m:
+    for i in range(m):
+      for j in range(i+1,m):
+        while prefix[i] == prefix[j]:
+          a = len(prefix[i])
+          prefix[i] = l[i][0:a+1]
+          prefix[j] = l[j][0:a+1]
+    s = set(prefix)
+  return prefix
+
+
